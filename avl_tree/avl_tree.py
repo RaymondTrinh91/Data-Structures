@@ -40,7 +40,21 @@ class AVLTree:
     in the tree
     """
     def update_height(self):
-        pass
+        left_count = 0
+        right_count = 0
+        if self.node is not None:
+            self.height += 1
+            while self.node.left is not None:
+                left_count += 1
+                self.node = self.node.left
+            while self.node.right is not None:
+                right_count += 1
+                self.node = self.node.right
+            if left_count > right_count:
+                self.height += left_count
+            else: 
+                self.height += right_count
+
 
     """
     Updates the balance factor on the AVLTree class
